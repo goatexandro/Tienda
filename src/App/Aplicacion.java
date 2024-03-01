@@ -3,6 +3,7 @@ package App;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Scanner;
 
 import Data.GestionProducto;
 import Leer.Leer;
@@ -11,6 +12,11 @@ import Logic.Musica;
 import Logic.Producto;
 import Logic.Videojuego;
 import Mensaje.Mensaje;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+
 
 /**
  * @author Pedro
@@ -18,7 +24,7 @@ import Mensaje.Mensaje;
  */
 public class Aplicacion {
 
-
+Scanner sc=new Scanner(System.in);
 	public static void main(String[] args) {
 
 
@@ -66,7 +72,7 @@ public class Aplicacion {
 			gestion.mostrar(lista);
 				break;
 			case 2:
-				
+				gestion.guardarProductosEnArchivo(lista);
 				break;
 
 			case 3:

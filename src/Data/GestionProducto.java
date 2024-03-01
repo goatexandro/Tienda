@@ -2,6 +2,9 @@
  * 
  */
 package Data;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -40,16 +43,6 @@ public class GestionProducto {
 	 * 
 	 * @param productos
 	 */
-	public void mostrarProductos(Producto[] productos) {
-		for (int i = 0; i < productos.length; i++) {
-
-			System.out.print("\n" + productos[i] + "\n" + "Nombre: " + productos[i].getNombre() + "\n" + "Disponible: "
-					+ productos[i].getCantStock() + "\n" + "Precio Unitario: " + productos[i].getPrecioUnit()
-					+ " euros."
-					+ "\n");
-
-		}
-	}
 
 	public void mostrar(ArrayList<Producto> lista) {
 		for (int i =0;i<lista.size();i++) {
@@ -59,5 +52,20 @@ public class GestionProducto {
 					+ "\n");
 		}
 	}
+
+	
+	public static void guardarProductosEnArchivo(ArrayList<Producto> productos) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\caroa\\OneDrive\\Escritorio\\ticket.txt"))) {
+            for (int i =0;i<productos.size();i++) {
+                writer.write("\n" + productos.get(i) + "\n" + "Nombre: " + productos.get(i).getNombre() + "\n" + "Precio unidad: "
+    					+ productos.get(i).getPrecioUnit() + "\n" + "Cantidad: " + productos.get(i).getCantStock()
+    					
+    					+ "\n");
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            System.err.println("Error al escribir en el archivo: " + e.getMessage());
+        }
+    }
 		
 }
