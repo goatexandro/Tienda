@@ -24,7 +24,7 @@ import java.io.IOException;
  */
 public class Aplicacion {
 
-Scanner sc=new Scanner(System.in);
+static Scanner sc=new Scanner(System.in);
 	public static void main(String[] args) {
 
 
@@ -61,7 +61,7 @@ Scanner sc=new Scanner(System.in);
 		lista.add(cine1);
 		lista.add(juego1);
 
-		
+		int casos=0;
 
 		do {
 
@@ -72,6 +72,17 @@ Scanner sc=new Scanner(System.in);
 			gestion.mostrar(lista);
 				break;
 			case 2:
+				Mensaje.Opciones_Menu2();
+				casos=sc.nextInt();
+				switch(casos) {
+				case 1:
+					gestion.escribir(lista);
+					
+					break;
+				case 2:
+				Mensaje.Opciones_Menu3();
+					break;
+				}
 				gestion.guardarProductosEnArchivo(lista);
 				break;
 

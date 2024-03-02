@@ -1,0 +1,1 @@
+Hola, este es un ejemplo de cómo escribir en un archivo de texto en Java.
