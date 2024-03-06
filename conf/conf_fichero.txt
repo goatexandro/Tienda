@@ -1,0 +1,28 @@
+
+PRODUCTO MUSICA
+Genero: Trip Hop
+Nombre: Portishead
+Precio unidad: 18.53
+Cantidad: 6
+
+
+PRODUCTO MUSICA
+Genero: Rock
+Nombre: Radiohead
+Precio unidad: 21.2
+Cantidad: 20
+
+
+PRODUCTO CINE
+Genero: Fantasía
+Nombre: Willy Wonka
+Precio unidad: 30.2
+Cantidad: 5
+
+
+PRODUCTO VIDEOJUEGO
+Genero: Plataformas
+Nombre: Mario Bross
+Precio unidad: 35.11
+Cantidad: 0
+

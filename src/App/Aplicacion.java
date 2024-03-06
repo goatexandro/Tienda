@@ -15,7 +15,7 @@ import Mensaje.Mensaje;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-
+import Store.Fichero;
 
 
 /**
@@ -76,14 +76,14 @@ static Scanner sc=new Scanner(System.in);
 				casos=sc.nextInt();
 				switch(casos) {
 				case 1:
-					gestion.escribir(lista);
+					Fichero.escribir(lista);
 					
 					break;
 				case 2:
 				Mensaje.Opciones_Menu3();
 					break;
 				}
-				gestion.guardarProductosEnArchivo(lista);
+				Fichero.guardarProductosEnArchivo(lista);
 				break;
 
 			case 3:

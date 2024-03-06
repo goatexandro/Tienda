@@ -21,6 +21,10 @@ public class Mensaje {
 				+ "\tSALIR --> Pulse cualquier otro número\n");
 	}
 	
+	public static void Opciones_Menu1() {
+		System.out.println("\nDesea realizar otra compra?");
+	}
+	
 	public static void Opciones_Menu2() {
 		System.out.println("\nDesea ticket de la compra? Pulse 1 en el caso de que sea asi, pulse 2 en el caso contrario");
 	}
