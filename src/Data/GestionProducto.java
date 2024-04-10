@@ -8,53 +8,59 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Scanner;
+import java.util.TreeMap;
 
+import Logic.Cine;
+import Logic.Musica;
 import Logic.Producto;
-
+import Logic.Videojuego;
+import Mensaje.Mensaje;
+import App.Aplicacion;
 /**
  * @author Pedro
  *
  */
+
 public class GestionProducto {
 
-	// Atributos
-	private Producto productos[] = null;
-	public double caja;
+    // Atributos
+    public static TreeMap<Integer, Producto> listaProductos = new TreeMap<>();
 
-	// Constructores
-	public GestionProducto() {
+    // Constructores
+    public GestionProducto() {
+        cargarProductos();
+    }
 
-	}
+    // Methods
+    /**
+     * Método para cargar los productos en un TreeMap.
+     */
+	static Scanner sc = new Scanner(System.in);
 
-	public GestionProducto(Producto[] productos) {
-		this.productos = productos;
-	}
+    public static void cargarProductos() {
+        Producto disco1 = new Musica("Portishead", 18.53, 6, true, "Trip Hop");
+        Producto disco2 = new Musica("Radiohead", 21.2, 20, true, "Rock");
+        Producto cine1 = new Cine("Willy Wonka", 30.2, 5, true, "Fantasía");
+        Producto juego1 = new Videojuego("Mario Bross", 35.11, 0, false, "Plataformas");
 
-	// Methods
-	/**
-	 * 
-	 * @return
-	 */
-	public Producto[] cargarProductos() {
-
-		return productos;
-	}
-
-	/**
-	 * 
-	 * @param productos
-	 */
-
-	public void mostrar(ArrayList<Producto> lista) {
-		for (int i =0;i<lista.size();i++) {
-			System.out.println("\n" + lista.get(i) + "\n" + "Nombre: " + lista.get(i).getNombre() + "\n" + "Precio unidad: "
-					+ lista.get(i).getPrecioUnit() + "\n" + "Cantidad: " + lista.get(i).getCantStock()
-					
-					+ "\n");
-		}
-	}
-
-	
-
-		
+        listaProductos.put(1, disco1);
+        listaProductos.put(2, disco2);
+        listaProductos.put(3, cine1);
+        listaProductos.put(4, juego1);
+    }
+        
+        
+       
+    /**
+     * Método para mostrar los productos.
+     */
+    public void mostrarProductos() {
+        for (Integer key : listaProductos.keySet()) {
+            Producto producto = listaProductos.get(key);
+            System.out.println("\n" + producto + "\n" + "Nombre: " + producto.getNombre() + "\n" + "Precio unidad: "
+                    + producto.getPrecioUnit() + "\n" + "Cantidad: " + producto.getCantStock() + "\n");
+        }
+    }
 }
+
