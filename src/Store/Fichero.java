@@ -18,9 +18,7 @@ public class Fichero {
     public static void cargarProductos() {
         // Código para cargar los productos
     }
-    public static void mostrarProductos() {
-        // Implementación para mostrar productos
-    }
+  
     public static void seleccionarYGuardarProductos(GestionProducto gestionProducto) {
         // Acceder al TreeMap listaProductos de la clase GestionProducto
         TreeMap<Integer, Producto> listaProductos = gestionProducto.listaProductos;
