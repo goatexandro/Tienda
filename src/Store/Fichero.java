@@ -49,7 +49,6 @@ public class Fichero {
 
             System.out.println("Los productos seleccionados han sido guardados en " + ruta);
         } catch (IOException e) {
-            // No imprimir el mensaje de error
             System.out.println("Error al guardar el archivo. Por favor, inténtelo de nuevo.");
         }
     }

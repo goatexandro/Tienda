@@ -6,6 +6,7 @@ import java.util.LinkedList;
 import java.util.Scanner;
 import java.util.TreeMap;
 
+import Cliente.Compra;
 import Data.GestionProducto;
 import Leer.Leer;
 import Logic.Cine;
@@ -63,7 +64,10 @@ static Scanner sc=new Scanner(System.in);
 				break;
 
 			case 3:
-		   
+				Compra nuevaCompra = new Compra();
+			    nuevaCompra.ins();
+			    nuevaCompra.mostrarCaja(null);
+			    sc.nextLine();
 
 
 				 break;

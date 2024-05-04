@@ -6,10 +6,12 @@ import java.util.Scanner;
 import Error.NoBanco;
 import Error.NoTarjeta;
 import Error.NoTelefono;
+import Logic.Cine;
 import Logic.Musica;
 import Logic.Producto;
+import Logic.Videojuego;
 public class Compra {
-	public static void main(String[] args) {
+	public  void ins() {
 		        Scanner sc = new Scanner(System.in);
 
 		        ArrayList<Cliente> clientes = new ArrayList<>();
@@ -85,16 +87,24 @@ public class Compra {
 		        System.out.println("Dime su observacion");
 		        String observaciones = sc.nextLine();
 
-		        Cliente cliente1 = new Cliente(15, 15, nombrec, apellidos, direccion, localidad, provincia, pais, codigo_postal, telefono, email, observaciones);
+		        Cliente cliente1 = new Cliente(20, 20, nombrec, apellidos, direccion, localidad, provincia, pais, codigo_postal, telefono, email, observaciones);
 		        clientes.add(cliente1);
 
 		        System.out.println("¿Qué cantidad desea?");
 		        int cantidad = sc.nextInt();
 		        sc.nextLine(); 
 
+		        
+		        
 		        Producto producto1 = new Musica( "Portishead", 18.53, 6, true, "Trip Hop");
 
-		        Pedido pedido1 = new Pedido(15, cliente1, producto1, cantidad);
+		       
+		        
+		        Producto producto2 = new Videojuego("Mario Bross", 35.11, 0, false, "Plataformas");
+
+		        Producto producto3 = new Cine( "Willy Wonka", 30.2, 5, true, "Fantasía");
+
+		        Pedido pedido1 = new Pedido(20, cliente1, producto2, cantidad);
 		        pedidos.add(pedido1);
 
 		        recorrerArrayList(pedidos);
@@ -111,16 +121,19 @@ public class Compra {
 	//3333333333333333333333
 
 	 public static void mostrarCaja(ArrayList<Pedido> listaPedidos) {
+		 if (listaPedidos == null) {
+		        System.out.println("La lista de pedidos está vacía.");
+		        return;
+		 }
          double total = 0.0;
 
-         // Calcular el importe total sumando el precio de cada pedido
          for (Pedido pedido : listaPedidos) {
              total += pedido.getProducto().getPrecioUnit() * pedido.getCantidad();
          }
 
-         // Mostrar el importe total
          System.out.println("Importe total de la compra actual: " + total);
      }
+	 
 	 
 		    public static void recorrerArrayList(ArrayList<Pedido> listaPedidos) {
 		        for (Pedido pedido : listaPedidos) {
