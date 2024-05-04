@@ -63,7 +63,8 @@ static Scanner sc=new Scanner(System.in);
 				break;
 
 			case 3:
-				
+		   
+
 
 				 break;
 			default:

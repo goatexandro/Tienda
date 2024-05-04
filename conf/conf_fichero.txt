@@ -1,9 +1,5 @@
 Productos seleccionados:
-PRODUCTO MUSICA
-Genero: Rock
-PRODUCTO MUSICA
-Genero: Rock
-PRODUCTO MUSICA
-Genero: Rock
+PRODUCTO CINE
+Genero: Fantasía
 PRODUCTO MUSICA
 Genero: Rock

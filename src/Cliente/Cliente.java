@@ -141,13 +141,13 @@ public class Cliente {
         Connection cn = null;
         PreparedStatement ps = null;
 
-        String insertSQL = "INSERT INTO usuario (codigo, numero_cliente, nombre, apellidos, direccion, localidad, provincia, pais, codigo_postal, telefono, mail, observaciones) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String insertSQL = "INSERT INTO cliente (codigo, numero_cliente, nombre, apellidos, direccion, localidad, provincia, pais, codigo_postal, telefono, mail, observaciones) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             cn = conexion.conectar();
             ps = cn.prepareStatement(insertSQL);
             
-            // Establecer los valores de los parámetros en la consulta SQL
+       
             ps.setInt(1, codigo);
             ps.setInt(2, numeroCliente);
             ps.setString(3, nombre);
@@ -161,13 +161,12 @@ public class Cliente {
             ps.setString(11, mail);
             ps.setString(12, observaciones);
             
-            // Ejecutar la consulta SQL para insertar el cliente en la base de datos
+        
             ps.executeUpdate();
             System.out.println("Cliente insertado correctamente en la base de datos.");
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            // Cerrar recursos
             try {
                 if (ps != null) ps.close();
                 if (cn != null) cn.close();
@@ -177,7 +176,6 @@ public class Cliente {
         }
     }
     
-    // Otros métodos para actualizar, eliminar y consultar clientes en la base de datos
 
 	
 	

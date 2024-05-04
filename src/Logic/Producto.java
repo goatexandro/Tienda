@@ -10,6 +10,8 @@ package Logic;
 public abstract class Producto {
 
 	// Atributos
+	
+	//tuve q añadirle codigo para poder utilizar pedido correctamente
 	private String nombre;
 	private double precioUnit;
 	private int cantStock;
@@ -32,8 +34,9 @@ public abstract class Producto {
 	 * @param cantStock
 	 * @param disponible
 	 */
-	public Producto(String nombre, double precioUnit, int cantStock, boolean disponible) {
+	public Producto( String nombre, double precioUnit, int cantStock, boolean disponible) {
 
+	
 		this.nombre = nombre;
 		this.precioUnit = precioUnit;
 		this.cantStock = cantStock;
@@ -114,4 +117,9 @@ public abstract class Producto {
 		this.disponible = disponible;
 	}
 
-}
+	
+	}
+
+	
+	
+

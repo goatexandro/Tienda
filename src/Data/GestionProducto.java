@@ -39,10 +39,10 @@ public class GestionProducto {
 	static Scanner sc = new Scanner(System.in);
 
     public static void cargarProductos() {
-        Producto disco1 = new Musica("Portishead", 18.53, 6, true, "Trip Hop");
-        Producto disco2 = new Musica("Radiohead", 21.2, 20, true, "Rock");
-        Producto cine1 = new Cine("Willy Wonka", 30.2, 5, true, "Fantasía");
-        Producto juego1 = new Videojuego("Mario Bross", 35.11, 0, false, "Plataformas");
+        Producto disco1 = new Musica( "Portishead", 18.53, 6, true, "Trip Hop");
+        Producto disco2 = new Musica( "Radiohead", 21.2, 20, true, "Rock");
+        Producto cine1 = new Cine( "Willy Wonka", 30.2, 5, true, "Fantasía");
+		Producto juego1 = new Videojuego("Mario Bross", 35.11, 0, false, "Plataformas");
 
         listaProductos.put(1, disco1);
         listaProductos.put(2, disco2);

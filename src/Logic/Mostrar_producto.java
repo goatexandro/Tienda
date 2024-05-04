@@ -10,9 +10,9 @@ public class Mostrar_producto {
 	public void mostrar_producto() {
 
 		// Se instancian y cargan los productos
-		Producto disco1 = new Musica("Portishead", 18.53, 6, true, "Trip Hop");
-		Producto disco2 = new Musica("Radiohead", 21.2, 20, true, "Rock");
-		Producto cine1 = new Cine("Willy Wonka", 30.2, 5, true, "Fantasía");
+		Producto disco1 = new Musica( "Portishead", 18.53, 6, true, "Trip Hop");
+        Producto disco2 = new Musica( "Radiohead", 21.2, 20, true, "Rock");
+        Producto cine1 = new Cine( "Willy Wonka", 30.2, 5, true, "Fantasía");
 		Producto juego1 = new Videojuego("Mario Bross", 35.11, 0, false, "Plataformas");
 
 

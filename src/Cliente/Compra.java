@@ -85,16 +85,16 @@ public class Compra {
 		        System.out.println("Dime su observacion");
 		        String observaciones = sc.nextLine();
 
-		        Cliente cliente1 = new Cliente(1, 1, nombrec, apellidos, direccion, localidad, provincia, pais, codigo_postal, telefono, email, observaciones);
+		        Cliente cliente1 = new Cliente(15, 15, nombrec, apellidos, direccion, localidad, provincia, pais, codigo_postal, telefono, email, observaciones);
 		        clientes.add(cliente1);
 
 		        System.out.println("¿Qué cantidad desea?");
 		        int cantidad = sc.nextInt();
-		        sc.nextLine(); // Limpiar el buffer del teclado después de leer un entero
+		        sc.nextLine(); 
 
-		        Musica producto1 = new Musica("Portishead", 18.53, 6, true, "Trip Hop");
+		        Producto producto1 = new Musica( "Portishead", 18.53, 6, true, "Trip Hop");
 
-		        Pedido pedido1 = new Pedido(1, cliente1, producto1, cantidad);
+		        Pedido pedido1 = new Pedido(15, cliente1, producto1, cantidad);
 		        pedidos.add(pedido1);
 
 		        recorrerArrayList(pedidos);
@@ -102,10 +102,26 @@ public class Compra {
 		        
 		        Compra.recorrerArrayListClientes(clientes);
 		        cliente1.insertarCliente();
+		        pedido1.insertarPedido();
+		        
+		        Compra.mostrarCaja(pedidos);
 
 		    }
 
-	
+	//3333333333333333333333
+
+	 public static void mostrarCaja(ArrayList<Pedido> listaPedidos) {
+         double total = 0.0;
+
+         // Calcular el importe total sumando el precio de cada pedido
+         for (Pedido pedido : listaPedidos) {
+             total += pedido.getProducto().getPrecioUnit() * pedido.getCantidad();
+         }
+
+         // Mostrar el importe total
+         System.out.println("Importe total de la compra actual: " + total);
+     }
+	 
 		    public static void recorrerArrayList(ArrayList<Pedido> listaPedidos) {
 		        for (Pedido pedido : listaPedidos) {
 		            System.out.println("PEDIDO");

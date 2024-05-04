@@ -18,8 +18,8 @@ public class Musica extends Producto {
 
 	}
 
-	public Musica(String nombre, double precioUnit, int cantStock, boolean disponible, String genero) {
-		super(nombre, precioUnit, cantStock, disponible);
+	public Musica( String nombre, double precioUnit, int cantStock, boolean disponible, String genero) {
+		super( nombre, precioUnit, cantStock, disponible);
 		this.genero = genero;
 	}
 
@@ -37,4 +37,14 @@ public class Musica extends Producto {
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
+
+	public String getAutor() {
+		return autor;
+	}
+
+	public void setAutor(String autor) {
+		this.autor = autor;
+	}
+	
+	
 }
