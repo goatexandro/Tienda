@@ -1,13 +1,17 @@
 package Cliente;
+import java.util.ArrayList;
+
 import Logic.Producto;
 
 public class Pedido {
+	ArrayList<Pedido> pedidos=new ArrayList<>();
+	
 	 int ordenDePedido;
-     int codigoCliente;
+     Cliente codigoCliente;
      Producto producto;
      int cantidad;
 
-    public Pedido(int ordenDePedido, int codigoCliente, Producto producto, int cantidad) {
+    public Pedido(int ordenDePedido, Cliente codigoCliente, Producto producto, int cantidad) {
         this.ordenDePedido = ordenDePedido;
         this.codigoCliente = codigoCliente;
         this.producto = producto;
@@ -22,11 +26,11 @@ public class Pedido {
 		this.ordenDePedido = ordenDePedido;
 	}
 
-	public int getCodigoCliente() {
+	public Cliente getCodigoCliente() {
 		return codigoCliente;
 	}
 
-	public void setCodigoCliente(int codigoCliente) {
+	public void setCodigoCliente(Cliente codigoCliente) {
 		this.codigoCliente = codigoCliente;
 	}
 
@@ -44,6 +48,11 @@ public class Pedido {
 
 	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
+	}
+
+	public char[] getNombre() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
     

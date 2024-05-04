@@ -1,9 +1,9 @@
 Productos seleccionados:
 PRODUCTO MUSICA
-Genero: Trip Hop
+Genero: Rock
 PRODUCTO MUSICA
 Genero: Rock
-PRODUCTO CINE
-Genero: Fantasía
-PRODUCTO VIDEOJUEGO
-Genero: Plataformas
+PRODUCTO MUSICA
+Genero: Rock
+PRODUCTO MUSICA
+Genero: Rock

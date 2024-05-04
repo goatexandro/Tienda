@@ -1,6 +1,16 @@
 package Cliente;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import BDD.Conexion;
+
 public class Cliente {
+	ArrayList <Cliente> clientes= new ArrayList<>();
+	
+	int codigo;
 	int numeroCliente;
 	String nombre;
 	String apellidos;
@@ -13,9 +23,10 @@ public class Cliente {
 	String mail;
 	String observaciones;
 
-	public Cliente(int numeroCliente, String nombre, String apellidos, String direccion, String localidad,
+	public Cliente(int codigo, int numeroCliente, String nombre, String apellidos, String direccion, String localidad,
 			String provincia, String pais, String codigoPostal, String telefono, String mail, String observaciones) {
 
+		this.codigo=codigo;
 		this.numeroCliente = numeroCliente;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
@@ -27,6 +38,14 @@ public class Cliente {
 		this.telefono = telefono;
 		this.mail = mail;
 		this.observaciones = observaciones;
+	}
+
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
 	}
 
 	public int getNumeroCliente() {
@@ -117,8 +136,50 @@ public class Cliente {
 		this.observaciones = observaciones;
 	}
 
-	
-	
+	public void insertarCliente() {
+        Conexion conexion = new Conexion();
+        Connection cn = null;
+        PreparedStatement ps = null;
+
+        String insertSQL = "INSERT INTO usuario (codigo, numero_cliente, nombre, apellidos, direccion, localidad, provincia, pais, codigo_postal, telefono, mail, observaciones) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        try {
+            cn = conexion.conectar();
+            ps = cn.prepareStatement(insertSQL);
+            
+            // Establecer los valores de los parámetros en la consulta SQL
+            ps.setInt(1, codigo);
+            ps.setInt(2, numeroCliente);
+            ps.setString(3, nombre);
+            ps.setString(4, apellidos);
+            ps.setString(5, direccion);
+            ps.setString(6, localidad);
+            ps.setString(7, provincia);
+            ps.setString(8, pais);
+            ps.setString(9, codigoPostal);
+            ps.setString(10, telefono);
+            ps.setString(11, mail);
+            ps.setString(12, observaciones);
+            
+            // Ejecutar la consulta SQL para insertar el cliente en la base de datos
+            ps.executeUpdate();
+            System.out.println("Cliente insertado correctamente en la base de datos.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // Cerrar recursos
+            try {
+                if (ps != null) ps.close();
+                if (cn != null) cn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    
+    // Otros métodos para actualizar, eliminar y consultar clientes en la base de datos
+
 	
 	
 }
+
