@@ -1,17 +1,1 @@
-Productos seleccionados:
-PRODUCTO VIDEOJUEGO
-Genero: Plataformas
-PRODUCTO VIDEOJUEGO
-Genero: Plataformas
-PRODUCTO VIDEOJUEGO
-Genero: Plataformas
-PRODUCTO VIDEOJUEGO
-Genero: Plataformas
-PRODUCTO VIDEOJUEGO
-Genero: Plataformas
-PRODUCTO VIDEOJUEGO
-Genero: Plataformas
-PRODUCTO VIDEOJUEGO
-Genero: Plataformas
-PRODUCTO VIDEOJUEGO
-Genero: Plataformas
+C:\Users\caroa\OneDrive\Escritorio\clase\entorno\Tiendai\out

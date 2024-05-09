@@ -11,9 +11,10 @@ import Data.GestionProducto;
 import Leer.Leer;
 import Logic.Cine;
 import Logic.Musica;
-import Logic.Producto;
 import Logic.Videojuego;
 import Mensaje.Mensaje;
+import Producto.Producto;
+
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -48,7 +49,9 @@ static Scanner sc=new Scanner(System.in);
 			        gestionProducto1.mostrarProductos();			
 			        break;
 			case 2:
-				
+				Compra nueva =new Compra();
+				nueva.pago();
+				sc.nextLine();
 
 		Mensaje.Opciones_Menu2();
 				casos=sc.nextInt();
@@ -65,11 +68,9 @@ static Scanner sc=new Scanner(System.in);
 
 			case 3:
 				Compra nuevaCompra = new Compra();
-			    nuevaCompra.ins();
 			    nuevaCompra.mostrarCaja(null);
-			    sc.nextLine();
 
-
+//AQUI TIENE Q ESTAR COMO EL TICKET PERO CON EL PRECIO FINAL DE LOS PRODUCTO Q COMPRE EN EL 2
 				 break;
 			default:
 				// Se sale del programa

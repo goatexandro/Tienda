@@ -3,6 +3,8 @@
  */
 package Logic;
 
+import Producto.Producto;
+
 /**
  * @author Pedro
  *
@@ -14,12 +16,10 @@ public class Cine extends Producto {
 
 
 	// Constructores
-	public Cine() {
+	
 
-	}
-
-	public Cine( String nombre, double precioUnit, int cantStock, boolean disponible, String genero) {
-		super( nombre, precioUnit, cantStock, disponible);
+	public Cine( int codigoproducto, String nombre, double precioUnit, int cantStock, boolean disponible, String genero) {
+		super( codigoproducto, nombre, precioUnit, cantStock, disponible);
 		this.genero = genero;
 	}
 

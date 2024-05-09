@@ -1,7 +1,13 @@
-package Logic;
+package Producto;
 /**
  * 
  */
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import Cliente.Cliente;
+import BDD.Conexion;
 
 /**
  * @author Pedro
@@ -12,6 +18,7 @@ public abstract class Producto {
 	// Atributos
 	
 	//tuve q añadirle codigo para poder utilizar pedido correctamente
+	private int codigoproducto;
 	private String nombre;
 	private double precioUnit;
 	private int cantStock;
@@ -22,9 +29,6 @@ public abstract class Producto {
 	/**
 	 * 
 	 */
-	public Producto() {
-
-	}
 
 	/**
 	 * Constructor clase producto con 4 parametros
@@ -34,9 +38,9 @@ public abstract class Producto {
 	 * @param cantStock
 	 * @param disponible
 	 */
-	public Producto( String nombre, double precioUnit, int cantStock, boolean disponible) {
+	public Producto( int codigoproducto, String nombre, double precioUnit, int cantStock, boolean disponible) {
 
-	
+	this.codigoproducto=codigoproducto;
 		this.nombre = nombre;
 		this.precioUnit = precioUnit;
 		this.cantStock = cantStock;
@@ -117,6 +121,54 @@ public abstract class Producto {
 		this.disponible = disponible;
 	}
 
+	
+
+	public int getCodigoproducto() {
+		return codigoproducto;
+	}
+
+	public void setCodigoproducto(int codigoproducto) {
+		this.codigoproducto = codigoproducto;
+	}
+
+	@Override
+	public String toString() {
+		return "Producto [codigoproducto=" + codigoproducto + ", nombre=" + nombre + ", precioUnit=" + precioUnit
+				+ ", cantStock=" + cantStock + ", disponible=" + disponible + "]";
+	}
+
+	public void insertarProducto() {
+		Conexion conexion = new Conexion();
+		Connection cn = null;
+		PreparedStatement ps = null;
+
+		String insertSQL = "INSERT INTO producto (codigoproducto, nombre, precioUnit, cantStock) VALUES (?, ?, ?, ?)";
+
+		try {
+			cn = conexion.conectar();
+			ps = cn.prepareStatement(insertSQL);
+
+			ps.setInt(1,codigoproducto );
+			ps.setString(2, nombre);
+			ps.setDouble(3, precioUnit);
+			ps.setInt(4, cantStock);
+
+			ps.executeUpdate();
+			System.out.println("Producto insertado correctamente en la base de datos.");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+
+			try {
+				if (ps != null)
+					ps.close();
+				if (cn != null)
+					cn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 	
 	}
 

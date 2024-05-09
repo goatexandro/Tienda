@@ -4,7 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
+import Producto.Producto;
+import Producto.Pedido;
 import BDD.Conexion;
 
 public class Cliente {
@@ -141,7 +142,7 @@ public class Cliente {
         Connection cn = null;
         PreparedStatement ps = null;
 
-        String insertSQL = "INSERT INTO cliente (codigo, numero_cliente, nombre, apellidos, direccion, localidad, provincia, pais, codigo_postal, telefono, mail, observaciones) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String insertSQL = "INSERT INTO cliente (codigoCliente, numero_cliente, nombre, apellidos, direccion, localidad, provincia, pais, codigo_postal, telefono, mail, observaciones) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             cn = conexion.conectar();

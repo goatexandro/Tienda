@@ -3,6 +3,8 @@
  */
 package Logic;
 
+import Producto.Producto;
+
 /**
  * @author Pedro
  *
@@ -14,12 +16,10 @@ public class Musica extends Producto {
 	private String autor;// Autor de la canción
 
 	// Constructores
-	public Musica() {
+	
 
-	}
-
-	public Musica( String nombre, double precioUnit, int cantStock, boolean disponible, String genero) {
-		super( nombre, precioUnit, cantStock, disponible);
+	public Musica( int codigoproducto, String nombre, double precioUnit, int cantStock, boolean disponible, String genero) {
+		super( codigoproducto, nombre, precioUnit, cantStock, disponible);
 		this.genero = genero;
 	}
 

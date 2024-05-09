@@ -1,4 +1,4 @@
-package Cliente;
+package Producto;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,20 +6,20 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import BDD.Conexion;
-import Logic.Producto;
+import Cliente.Cliente;
 
 public class Pedido {
 	ArrayList<Pedido> pedidos = new ArrayList<>();
 
 	int ordenDePedido;
-	Cliente codigoCliente;
-	Producto producto;
+	Cliente codigo;
+	Producto codigoproducto;
 	int cantidad;
 
-	public Pedido(int ordenDePedido, Cliente codigoCliente, Producto producto, int cantidad) {
+	public Pedido(int ordenDePedido, Cliente codigo, Producto codigoproducto, int cantidad) {
 		this.ordenDePedido = ordenDePedido;
-		this.codigoCliente = codigoCliente;
-		this.producto = producto;
+		this.codigo = codigo;
+		this.codigoproducto = codigoproducto;
 		this.cantidad = cantidad;
 	}
 
@@ -31,20 +31,24 @@ public class Pedido {
 		this.ordenDePedido = ordenDePedido;
 	}
 
-	public Cliente getCodigoCliente() {
-		return codigoCliente;
+
+	public Cliente getCodigo() {
+		return codigo;
 	}
 
-	public void setCodigoCliente(Cliente codigoCliente) {
-		this.codigoCliente = codigoCliente;
+	public void setCodigo(Cliente codigo) {
+		this.codigo = codigo;
 	}
 
-	public Producto getProducto() {
-		return producto;
+
+
+
+	public Producto getCodigoproducto() {
+		return codigoproducto;
 	}
 
-	public void setProducto(Producto producto) {
-		this.producto = producto;
+	public void setCodigoproducto(Producto codigoproducto) {
+		this.codigoproducto = codigoproducto;
 	}
 
 	public int getCantidad() {
@@ -65,15 +69,15 @@ public class Pedido {
 		Connection cn = null;
 		PreparedStatement ps = null;
 
-		String insertSQL = "INSERT INTO pedido (ordenDePedido,  codigoCliente,  producto,  cantidad) VALUES (?, ?, ?, ?)";
+		String insertSQL = "INSERT INTO pedido (ordenDePedido,  codigo,  codigoproducto,  cantidad) VALUES (?, ?, ?, ?)";
 
 		try {
 			cn = conexion.conectar();
 			ps = cn.prepareStatement(insertSQL);
 
 			ps.setInt(1, ordenDePedido);
-			ps.setInt(2, codigoCliente.getCodigo());
-			ps.setString(3, producto.getNombre());
+			ps.setInt(2, codigo.getCodigo());
+			ps.setInt(3, codigoproducto.getCodigoproducto());
 			ps.setInt(4, cantidad);
 
 			ps.executeUpdate();

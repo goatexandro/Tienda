@@ -3,6 +3,8 @@
  */
 package Logic;
 
+import Producto.Producto;
+
 /**
  * @author Pedro
  *
@@ -13,12 +15,10 @@ public class Videojuego extends Producto {
 	private String genero;
 
 	// Constructores
-	public Videojuego() {
 
-	}
 
-	public Videojuego( String nombre, double precioUnit, int cantStock, boolean disponible, String genero) {
-		super( nombre, precioUnit, cantStock, disponible);
+	public Videojuego( int codigoproducto, String nombre, double precioUnit, int cantStock, boolean disponible, String genero) {
+		super( codigoproducto, nombre, precioUnit, cantStock, disponible);
 		this.genero = genero;
 	}
 
