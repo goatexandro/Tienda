@@ -16,6 +16,7 @@ import Mensaje.Mensaje;
 import Producto.Producto;
 
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import Store.Fichero;
@@ -28,7 +29,7 @@ import Store.Fichero;
 public class Aplicacion {
 
 static Scanner sc=new Scanner(System.in);
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 
 		GestionProducto gestionProducto = new GestionProducto();
         gestionProducto.cargarProductos();
@@ -67,10 +68,8 @@ static Scanner sc=new Scanner(System.in);
 				break;
 
 			case 3:
-				Compra nuevaCompra = new Compra();
-			    nuevaCompra.mostrarCaja(null);
-
-//AQUI TIENE Q ESTAR COMO EL TICKET PERO CON EL PRECIO FINAL DE LOS PRODUCTO Q COMPRE EN EL 2
+			Fichero nuevo=new Fichero();
+			nuevo.mostrarCaja();
 				 break;
 			default:
 				// Se sale del programa

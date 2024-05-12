@@ -3,6 +3,8 @@
  */
 package Logic;
 
+import java.util.Map;
+
 import Producto.Producto;
 
 /**
@@ -37,5 +39,6 @@ public class Cine extends Producto {
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
+
 
 }
