@@ -1,4 +1,4 @@
-package Producto;
+package Logic;
 /**
  * 
  */
@@ -6,7 +6,7 @@ package Producto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import Cliente.Cliente;
+
 import BDD.Conexion;
 
 /**

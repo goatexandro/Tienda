@@ -6,7 +6,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import BDD.Conexion;
-import Cliente.Cliente;
+import Logic.Cliente;
+import Logic.Producto;
 
 public class Pedido {
 	ArrayList<Pedido> pedidos = new ArrayList<>();

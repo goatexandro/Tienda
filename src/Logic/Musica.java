@@ -3,8 +3,6 @@
  */
 package Logic;
 
-import Producto.Producto;
-
 /**
  * @author Pedro
  *

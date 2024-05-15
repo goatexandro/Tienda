@@ -13,9 +13,9 @@ import java.util.TreeMap;
 
 import Logic.Cine;
 import Logic.Musica;
+import Logic.Producto;
 import Logic.Videojuego;
 import Mensaje.Mensaje;
-import Producto.Producto;
 import App.Aplicacion;
 /**
  * @author Pedro

@@ -1,28 +1,28 @@
-package Cliente;
+package Logic;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import Producto.Producto;
+
 import Producto.Pedido;
 import BDD.Conexion;
 
 public class Cliente {
 	ArrayList <Cliente> clientes= new ArrayList<>();
 	
-	int codigo;
-	int numeroCliente;
-	String nombre;
-	String apellidos;
-	String direccion;
-	String localidad;
-	String provincia;
-	String pais;
-	String codigoPostal;
-	String telefono;
-	String mail;
-	String observaciones;
+	public static int codigo;
+	public static int numeroCliente;
+	public static  String nombre;
+	public static  String apellidos;
+	public static  String direccion;
+	public static  String localidad;
+	public static  String provincia;
+	public static  String pais;
+	public static  String codigoPostal;
+	public static  String telefono;
+	public static  String mail;
+	public static  String observaciones;
 
 	public Cliente(int codigo, int numeroCliente, String nombre, String apellidos, String direccion, String localidad,
 			String provincia, String pais, String codigoPostal, String telefono, String mail, String observaciones) {
@@ -137,48 +137,6 @@ public class Cliente {
 		this.observaciones = observaciones;
 	}
 
-	public void insertarCliente() {
-        Conexion conexion = new Conexion();
-        Connection cn = null;
-        PreparedStatement ps = null;
-
-        String insertSQL = "INSERT INTO cliente (codigoCliente, numero_cliente, nombre, apellidos, direccion, localidad, provincia, pais, codigo_postal, telefono, mail, observaciones) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
-        try {
-            cn = conexion.conectar();
-            ps = cn.prepareStatement(insertSQL);
-            
-       
-            ps.setInt(1, codigo);
-            ps.setInt(2, numeroCliente);
-            ps.setString(3, nombre);
-            ps.setString(4, apellidos);
-            ps.setString(5, direccion);
-            ps.setString(6, localidad);
-            ps.setString(7, provincia);
-            ps.setString(8, pais);
-            ps.setString(9, codigoPostal);
-            ps.setString(10, telefono);
-            ps.setString(11, mail);
-            ps.setString(12, observaciones);
-            
-        
-            ps.executeUpdate();
-            System.out.println("Cliente insertado correctamente en la base de datos.");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (ps != null) ps.close();
-                if (cn != null) cn.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-    
-
-	
 	
 }
 

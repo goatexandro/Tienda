@@ -15,9 +15,9 @@ import java.util.TreeMap;
 import Data.GestionProducto;
 import Logic.Cine;
 import Logic.Musica;
+import Logic.Producto;
 import Logic.Videojuego;
 import Producto.Pedido;
-import Producto.Producto;
 
 public class Fichero {
 

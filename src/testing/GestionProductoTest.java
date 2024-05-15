@@ -12,8 +12,8 @@ import org.junit.jupiter.api.Test;
 import Data.GestionProducto;
 import Logic.Cine;
 import Logic.Musica;
+import Logic.Producto;
 import Logic.Videojuego;
-import Producto.Producto;
 
 class GestionProductoTest {
 

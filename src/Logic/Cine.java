@@ -5,8 +5,6 @@ package Logic;
 
 import java.util.Map;
 
-import Producto.Producto;
-
 /**
  * @author Pedro
  *

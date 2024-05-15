@@ -1,4 +1,4 @@
-package Cliente;
+package Logic;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -9,11 +9,7 @@ import java.util.TreeMap;
 import Error.NoBanco;
 import Error.NoTarjeta;
 import Error.NoTelefono;
-import Logic.Cine;
-import Logic.Musica;
-import Logic.Videojuego;
 import Producto.Pedido;
-import Producto.Producto;
 
 public class Compra {
 	Scanner sc = new Scanner(System.in);
