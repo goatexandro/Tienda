@@ -5,29 +5,28 @@ Genero: Rock
 Nombre: Radiohead
 Precio unidad: 21.2
  codigo: 2
+PRODUCTO CINE
+Genero: Fantasía
+Nombre: Willy Wonka
+Precio unidad: 30.2
+ codigo: 3
 PRODUCTO MUSICA
 Genero: Rock
 Nombre: Radiohead
 Precio unidad: 21.2
  codigo: 2
-PRODUCTO MUSICA
-Genero: Rock
-Nombre: Radiohead
-Precio unidad: 21.2
- codigo: 2
-PRODUCTO MUSICA
-Genero: Rock
-Nombre: Radiohead
-Precio unidad: 21.2
- codigo: 2
-PRODUCTO MUSICA
-Genero: Rock
-Nombre: Radiohead
-Precio unidad: 21.2
- codigo: 2
-PRODUCTO MUSICA
-Genero: Trip Hop
-Nombre: Portishead
-Precio unidad: 18.53
- codigo: 1
- Predio total: 124.53
+ Predio total: 72.6===== TICKET DE COMPRA =====
+Código Cliente: 5353
+Nombre Cliente: fs
+Productos seleccionados: 2,3
+
+===== TICKET DE COMPRA =====
+Código Cliente: 434
+Nombre Cliente: sd
+Productos seleccionados: 2,3
+
+===== TICKET DE COMPRA =====
+Código Cliente: 1
+Nombre Cliente: null
+Productos seleccionados: 2,2,3
+

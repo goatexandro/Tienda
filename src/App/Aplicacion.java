@@ -6,6 +6,7 @@ import java.util.LinkedList;
 import java.util.Scanner;
 import java.util.TreeMap;
 
+import BDD.Conexion;
 import Data.GestionCliente;
 import Data.GestionProducto;
 import Leer.Leer;
@@ -21,6 +22,8 @@ import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.Connection;
+
 import Store.Fichero;
 
 /**
@@ -28,15 +31,13 @@ import Store.Fichero;
  *
  */
 public class Aplicacion {
-
+static Conexion conect=new Conexion();
+static Connection yo=conect.conectar();
 	static Scanner sc = new Scanner(System.in);
 
 	public static void main(String[] args) throws FileNotFoundException {
-		ArrayList <Cliente> clientes= new ArrayList<>();
 
-		GestionProducto gestionProducto = new GestionProducto();
-		gestionProducto.cargarProductos();
-
+		
 		Mensaje.Mensaje_Inicial();
 
 		boolean continuar = true;
@@ -50,12 +51,12 @@ public class Aplicacion {
 			switch (Leer.datoInt()) {
 			case 1:
 				GestionProducto gestionProducto1 = new GestionProducto();
-				gestionProducto1.mostrarProductos();
+				gestionProducto1.mostrarProductosa(yo);
 				break;
 			case 2:
 				GestionCliente nuevoc = new GestionCliente();
 				Compra nueva = new Compra();
-				nuevoc.creararCliente();
+				nuevoc.crearCliente(yo);
 				nueva.pago();
 
 				sc.nextLine();
@@ -65,8 +66,7 @@ public class Aplicacion {
 				switch (casos) {
 				case 1:
 					Mensaje.Opciones_Menu0();
-					Fichero.seleccionarYGuardarProductos(gestionProducto);
-
+nuevoc.seleccionarYGuardarProductos(yo, casos, null, null, null);
 					break;
 				case 2:
 					Mensaje.Opciones_Menu3();

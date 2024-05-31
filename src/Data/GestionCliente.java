@@ -12,141 +12,98 @@ import java.util.Scanner;
 import Logic.Cliente;
 import BDD.Conexion;
 import Error.NoTelefono;
-import Logic.Cliente;
-
+import App.Aplicacion;
 
 public class GestionCliente {
-	
-	Scanner sc=new Scanner(System.in);
-	public void creararCliente() {
-		ArrayList <Cliente> clientes= new ArrayList<>();
 
-		
-		System.out.println("Buenos dias, indique su codigo porfavor");
+    static Scanner sc = new Scanner(System.in);
 
-		int codigo;
+    public void crearCliente(Connection cn) {
+        ArrayList<Cliente> clientes = new ArrayList<>();
 
-		codigo = sc.nextInt();
-		
-		
-		System.out.println("Indique su numeroCliente porfavor");
-		
-		int numeroCliente = 0;
+        System.out.println("Buenos días, indique su código por favor");
+        int codigo = sc.nextInt();
 
-		codigo = sc.nextInt();
-		
-		
-		System.out.println("Ahora su nombre porfavor");
-		
-		String nombrec;
+        System.out.println("Indique su número de cliente por favor");
+        int numeroCliente = sc.nextInt();
 
-		nombrec = sc.next();
+        sc.nextLine(); // Consumir el salto de línea
 
-		
-		
-		
-		
-		
-		System.out.println("Su apellido");
-		String apellido;
+        System.out.println("Ahora su nombre por favor");
+        String nombre = sc.nextLine();
 
-		apellido = sc.next();
+        System.out.println("Su apellido");
+        String apellido = sc.nextLine();
 
-		
-		System.out.println("direccion");
-		String direccion;
+        System.out.println("Dirección");
+        String direccion = sc.nextLine();
 
-		direccion = sc.next();
+        System.out.println("Localidad");
+        String localidad = sc.nextLine();
 
-		
-		System.out.println("localidad");
-		String localidad;
+        System.out.println("Provincia");
+        String provincia = sc.nextLine();
 
-		localidad = sc.next();
+        System.out.println("País");
+        String pais = sc.nextLine();
 
-		
-		System.out.println("provincia");
-		String provincia;
+        System.out.println("Código Postal");
+        String codigoPostal = sc.nextLine();
 
-		provincia = sc.next();
+        System.out.println("Teléfono");
+        String telefono = null;
+        try {
+            telefono = sc.nextLine();
+            NoTelefono t = new NoTelefono(telefono);
+            t.TelefonoError(telefono);
+        } catch (NoTelefono e) {
+            System.err.println("Error: " + e.getMessage());
+            sc.close();
+            return;
+        }
 
-		
-		System.out.println("pais");
-		
-		String pais;
+        System.out.println("Mail");
+        String mail = sc.nextLine();
 
-		pais = sc.next();
+        System.out.println("Observaciones");
+        String observaciones = sc.nextLine();
 
+        Conexion conexion = new Conexion();
+        try (Connection cn1 = conexion.conectar()) {
+            seleccionarYGuardarProductos(cn1, codigo, nombre, apellido, direccion);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
-		System.out.println("codigoPostal");
-		
-		String codigoPostal;
+        Cliente cliente = new Cliente(codigo, numeroCliente, nombre, apellido, direccion, localidad, provincia, pais, codigoPostal, telefono, mail, observaciones);
+        clientes.add(cliente);
+        insertarCliente(cliente);
+    }
 
-		codigoPostal = sc.next();
-
-		
-		System.out.println("telefono");
-		
-		String telefono = null;
-		try {
-			telefono = sc.next();
-
-			NoTelefono t = new NoTelefono(telefono);
-			t.TelefonoError(telefono);
-		} catch (NoTelefono e) {
-			System.err.println("Error: " + e.getMessage());
-			sc.close();
-		}
-		sc.nextLine();
-		
-		
-		System.out.println("mail");
-		
-		String mail;
-
-		mail = sc.next();
-
-		
-		System.out.println("observaciones");
-		
-		String observaciones;
-
-		observaciones = sc.next();
-		
-		Cliente cliente1=new Cliente(codigo, numeroCliente, nombrec, apellido, direccion, localidad, provincia, pais, codigoPostal, telefono, mail, observaciones);
-
-		clientes.add(cliente1);
-	}
-
-	
-	public void insertarCliente() {
+    public void insertarCliente(Cliente cliente) {
         Conexion conexion = new Conexion();
         Connection cn = null;
         PreparedStatement ps = null;
 
-        String insertSQL = "INSERT INTO cliente (codigoCliente, numero_cliente, nombre, apellidos, direccion, localidad, provincia, pais, codigo_postal, telefono, mail, observaciones) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String insertSQL = "INSERT INTO cliente (codigo, numero_cliente, nombre, apellidos, direccion, localidad, provincia, pais, codigo_postal, telefono, mail, observaciones) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             cn = conexion.conectar();
             ps = cn.prepareStatement(insertSQL);
-            
-       
-            ps.setInt(1, Cliente.codigo);
-            
-				ps.setInt(2, Cliente.numeroCliente);
-			
-            ps.setString(3, Cliente.nombre);
-            ps.setString(4, Cliente.apellidos);
-            ps.setString(5, Cliente.direccion);
-            ps.setString(6, Cliente.localidad);
-            ps.setString(7, Cliente.provincia);
-            ps.setString(8, Cliente.pais);
-            ps.setString(9, Cliente.codigoPostal);
-            ps.setString(10, Cliente.telefono);
-            ps.setString(11, Cliente.mail);
-            ps.setString(12, Cliente.observaciones);
-            
-        
+
+            ps.setInt(1, cliente.getCodigo());
+            ps.setInt(2, cliente.getNumeroCliente());
+            ps.setString(3, cliente.getNombre());
+            ps.setString(4, cliente.getApellidos());
+            ps.setString(5, cliente.getDireccion());
+            ps.setString(6, cliente.getLocalidad());
+            ps.setString(7, cliente.getProvincia());
+            ps.setString(8, cliente.getPais());
+            ps.setString(9, cliente.getCodigoPostal());
+            ps.setString(10, cliente.getTelefono());
+            ps.setString(11, cliente.getMail());
+            ps.setString(12, cliente.getObservaciones());
+
             ps.executeUpdate();
             System.out.println("Cliente insertado correctamente en la base de datos.");
         } catch (SQLException e) {
@@ -160,5 +117,28 @@ public class GestionCliente {
             }
         }
     }
+
+    public static void seleccionarYGuardarProductos(Connection cn, int codigo, String nombre, String apellidos, String direccion) {
+        System.out.println("Ingrese los números de los productos seleccionados (separados por coma y sin espacios):");
+        String productosSeleccionados = sc.nextLine();
+
+        String ruta = "C:\\Users\\caroa\\OneDrive\\Escritorio\\clase\\entorno\\Tiendai\\out\\ticket.txt";
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(ruta, true))) {
+            writer.write("Código Cliente: " + codigo + "\n");
+            writer.write("Nombre Cliente: " + nombre + "\n");
+            writer.write("Código Cliente: " + apellidos + "\n");
+            writer.write("Código Cliente: " + direccion + "\n");
+
+            writer.write("Productos seleccionados: " + productosSeleccionados + "\n");
+            writer.newLine();
+            System.out.println("Guardado con exito en " + ruta);
+        } catch (IOException e) {
+            System.out.println("Error");
+            System.out.println(e.getMessage());
+        }
+    }
+
+
+	
 	
 }
