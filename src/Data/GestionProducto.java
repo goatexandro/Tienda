@@ -45,7 +45,7 @@ public class GestionProducto {
                 int cantidadStock = resultSet.getInt("cantStock");
 
                 System.out.println(
-                        "Codigo: "+codigoproducto+" El ombre: " + nombre + ", Precio: $" + precioUnitario + ", Stock: " + cantidadStock + "\n");
+                        "Codigo: "+codigoproducto+" El nombre: " + nombre + ", Precio: $" + precioUnitario + ", Stock: " + cantidadStock + "\n");
 
             }
         } catch (SQLException e) {

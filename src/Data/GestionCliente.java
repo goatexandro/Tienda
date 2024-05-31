@@ -70,7 +70,7 @@ public class GestionCliente {
 
         Conexion conexion = new Conexion();
         try (Connection cn1 = conexion.conectar()) {
-            seleccionarYGuardarProductos(cn1, codigo, nombre, apellido, direccion);
+            seleccionarYGuardarProductos(cn1);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -118,16 +118,21 @@ public class GestionCliente {
         }
     }
 
-    public static void seleccionarYGuardarProductos(Connection cn, int codigo, String nombre, String apellidos, String direccion) {
+    public static void seleccionarYGuardarProductos(Connection cn ) {
         System.out.println("Ingrese los números de los productos seleccionados (separados por coma y sin espacios):");
         String productosSeleccionados = sc.nextLine();
+        System.out.println(" indique su código de nuevo junto a su nombre,apellidos y direccion despues de cada intro que pulse por favor");
 
+        int codigo = sc.nextInt();
+        String nombre=sc.next();
+        String apellidos=sc.next();
+        String direccion=sc.next();
         String ruta = "C:\\Users\\caroa\\OneDrive\\Escritorio\\clase\\entorno\\Tiendai\\out\\ticket.txt";
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(ruta, true))) {
             writer.write("Código Cliente: " + codigo + "\n");
             writer.write("Nombre Cliente: " + nombre + "\n");
-            writer.write("Código Cliente: " + apellidos + "\n");
-            writer.write("Código Cliente: " + direccion + "\n");
+            writer.write("Apellido Cliente: " + apellidos + "\n");
+            writer.write("Direccion Cliente: " + direccion + "\n");
 
             writer.write("Productos seleccionados: " + productosSeleccionados + "\n");
             writer.newLine();

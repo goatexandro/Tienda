@@ -66,7 +66,7 @@ static Connection yo=conect.conectar();
 				switch (casos) {
 				case 1:
 					Mensaje.Opciones_Menu0();
-nuevoc.seleccionarYGuardarProductos(yo, casos, null, null, null);
+					nuevoc.seleccionarYGuardarProductos(yo);
 					break;
 				case 2:
 					Mensaje.Opciones_Menu3();

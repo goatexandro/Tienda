@@ -30,3 +30,45 @@ Código Cliente: 1
 Nombre Cliente: null
 Productos seleccionados: 2,2,3
 
+Código Cliente: 3223
+Nombre Cliente: dfsfddfsfsffffffff
+Código Cliente: sfdsdffffffffff
+Código Cliente: fdsssssssssss
+Productos seleccionados: 2,3,2,3
+
+Código Cliente: 1
+Nombre Cliente: null
+Código Cliente: null
+Código Cliente: null
+Productos seleccionados: 2,3,2,3,2
+
+Código Cliente: 0
+Nombre Cliente: null
+Código Cliente: null
+Código Cliente: null
+Productos seleccionados: 2,3,2
+
+Código Cliente: 0
+Nombre Cliente: null
+Código Cliente: null
+Código Cliente: null
+Productos seleccionados: 2,2,2
+
+Código Cliente: 0
+Nombre Cliente: null
+Código Cliente: null
+Código Cliente: null
+Productos seleccionados: 2,2,2,2
+
+Código Cliente: 0
+Nombre Cliente: null
+Código Cliente: null
+Código Cliente: null
+Productos seleccionados: 2,2,2,2,2
+
+Código Cliente: 232
+Nombre Cliente: ds
+Código Cliente: sdds
+Código Cliente: fsf
+Productos seleccionados: 2,2,2,2
+
